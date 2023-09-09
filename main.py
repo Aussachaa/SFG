@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import streamlit_pandas as sp
+import openpyxl
 
 st.title('Performance of the 3000 Brands')
 
