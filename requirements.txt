@@ -1,0 +1,4 @@
+Streamlit
+Pandas
+numpy
+streamlit_pandas
