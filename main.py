@@ -11,7 +11,6 @@ df = pd.read_excel(file_name)
 
 st.title('Performance of the 3000 Brands')
 
-#df = pd.read_excel('DB_Performance_SFG.xlsx')
 df = df.drop(columns=['GL', 'File_Name', 'Brand_Code'])
 Acc_lst = ['TOTAL:SALES', 'DISCOUNT', 'NET SALES', 'COST OF GOODS SOLD', 'GROSS PROFIT', 'TOTAL EXPENSE', 'NET PROFIT BEFORE TAX']
 df = df[df['ACC Name'].isin(Acc_lst)]
