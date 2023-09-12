@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import streamlit_pandas as sp
-import openpyxl as xl
+#import openpyxl as xl
 
 sp_url = r'https://docs.google.com/spreadsheets/d/14HeBaRujaYVWf8hsCzFWNC1-NTlhHEHq6aPOsxvAWto/export?format=xlsx'
 
