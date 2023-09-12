@@ -2,12 +2,12 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import openpyxl as xl
+#import openpyxl as xl
 
 #sp_url = r'https://docs.google.com/spreadsheets/d/14HeBaRujaYVWf8hsCzFWNC1-NTlhHEHq6aPOsxvAWto/export?format=xlsx'
 file_name = 'DB_Performance_SFG.xlsx'
 
-df = pd.read_excel(file_name, sheet_name='DB')
+df = pd.read_excel(file_name)
 
 st.title('Performance of the 3000 Brands')
 
