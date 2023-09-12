@@ -7,18 +7,18 @@ import pandas as pd
 #sp_url = r'https://docs.google.com/spreadsheets/d/14HeBaRujaYVWf8hsCzFWNC1-NTlhHEHq6aPOsxvAWto/export?format=xlsx'
 #file_name = 'DB_Performance_SFG.xlsx'
 
-df = pd.read_excel('https://github.com/Aussachaa/SFG/raw/main/DB_Performance_SFG.xlsx')
+#df = pd.read_excel('https://github.com/Aussachaa/SFG/raw/main/DB_Performance_SFG.xlsx')
 
 st.title('Performance of the 3000 Brands')
 
 
-'''@st.cache
+@st.cache
 def load_data():
-	df = pd.read_excel('DB_Performance_SFG.xlsx')
+	df = pd.read_excel('https://github.com/Aussachaa/SFG/raw/main/DB_Performance_SFG.xlsx')
 	return df
 
 
-df = load_data()'''
+df = load_data()
 
 df = df.drop(columns=['GL', 'File_Name', 'Brand_Code'])
 Acc_lst = ['TOTAL:SALES', 'DISCOUNT', 'NET SALES', 'COST OF GOODS SOLD', 'GROSS PROFIT', 'TOTAL EXPENSE', 'NET PROFIT BEFORE TAX']
