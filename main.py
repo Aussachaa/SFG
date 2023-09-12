@@ -3,23 +3,9 @@ import streamlit as st
 import pandas as pd
 import openpyxl as xl
 
-#import openpyxl as xl
-
-#sp_url = r'https://docs.google.com/spreadsheets/d/14HeBaRujaYVWf8hsCzFWNC1-NTlhHEHq6aPOsxvAWto/export?format=xlsx'
-#file_name = 'DB_Performance_SFG.xlsx'
-
 df = pd.read_excel('https://github.com/Aussachaa/SFG/raw/main/DB_Performance_SFG.xlsx', engine="openpyxl")
 
 st.title('Performance of the 3000 Brands')
-
-
-'''@st.cache
-def load_data():
-	df = pd.read_excel('https://github.com/Aussachaa/SFG/raw/main/DB_Performance_SFG.xlsx')
-	return df
-
-
-df = load_data()'''
 
 df = df.drop(columns=['GL', 'File_Name', 'Brand_Code'])
 Acc_lst = ['TOTAL:SALES', 'DISCOUNT', 'NET SALES', 'COST OF GOODS SOLD', 'GROSS PROFIT', 'TOTAL EXPENSE', 'NET PROFIT BEFORE TAX']
