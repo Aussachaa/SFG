@@ -5,7 +5,7 @@ import openpyxl as xl
 
 df = pd.read_excel('https://github.com/Aussachaa/SFG/raw/main/DB_Performance_SFG.xlsx', engine="openpyxl")
 
-st.title('Performance of the 3000 Brands')
+st.title('Performance of Brands 3000')
 
 df = df.drop(columns=['GL', 'File_Name', 'Brand_Code'])
 Acc_lst = ['TOTAL:SALES', 'DISCOUNT', 'NET SALES', 'COST OF GOODS SOLD', 'GROSS PROFIT', 'TOTAL EXPENSE', 'NET PROFIT BEFORE TAX']
