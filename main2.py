@@ -52,7 +52,7 @@ df4 = df4.assign(ACperFC=lambda x: (df4['Actual']/df4['Forecast']))
 df5 = df4.set_index('Period')
 df5['ACperFC'] = df5['ACperFC'].map('{:.2%}'.format)
 st.title('Net Sale Actual VS Forecast Yr 2023')
-st.markdown('Brand ' + brand)
+st.subheader('Brand ' + brand)
 st.dataframe(df5, use_container_width=True)
 
 
