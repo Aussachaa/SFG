@@ -47,11 +47,13 @@ brand = st.sidebar.selectbox(
 df4 = df3.query(
     "Brand == @brand")
 
-df4 = df4.drop(columns=['Brand', 'ACC Name']).reset_index()
+df4 = df4.drop(columns=['Brand', 'ACC Name'])
 df4 = df4.assign(ACperFC=lambda x: (df4['Actual']/df4['Forecast']))
-
-st.title('Forecast VS Actual Yr 2023 Brand ' + brand)
-st.dataframe(df4)
+df5 = df4.set_index('Period')
+df5['ACperFC'] = df5['ACperFC'].map('{:.2%}'.format)
+st.title('Net Sale Actual VS Forecast Yr 2023')
+st.markdown('Brand ' + brand)
+st.dataframe(df5, use_container_width=True)
 
 
 x_p = df4['Period']
@@ -60,23 +62,29 @@ y_fc = df4['Forecast']
 y_acperfc = df4['ACperFC']
 
 #define subplots
-fig, ax = plt.subplots(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(10, 5))
 ax.bar(x_p, y_ac, color='#FF6A6A', width=0.5, label='Actual')
 pos = np.arange(len(x_p))
 ax.bar([x + 0.3 for x in pos], y_fc, width=0.5,
        color='#CAFF70', alpha=0.8, label='Forecast')
 
 ax2 = ax.twinx()
-ax2.plot(x_p, y_acperfc, color='#8B8378', marker='s', markersize=7, alpha=0.5)
+ax2.plot(x_p, y_acperfc, color='#8B8378', marker='s', markersize=7, alpha=0.5, label='AC/FC')
 
 plt.xticks([r + 0.3/2 for r in range(len(x_p))], df4["Period"])
 plt.title('Net Sale_' + brand)
 ax.legend(loc='upper right')
+
+# ask matplotlib for the plotted objects and their labels
+lines, labels = ax.get_legend_handles_labels()
+lines2, labels2 = ax2.get_legend_handles_labels()
+ax2.legend(lines + lines2, labels + labels2, loc=0)
+
 for tx, ty in list(zip(x_p, y_acperfc)):
     ax2.annotate("{:,.1%}".format(ty), (tx, ty), textcoords='offset points', xytext=(
         0, 8), ha='left', fontsize=10)
 
 vals = ax2.get_yticks()
 ax2.set_yticklabels(['{:,.0%}'.format(x) for x in vals])
-
+plt.tight_layout()
 st.pyplot(fig)
