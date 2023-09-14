@@ -2,6 +2,7 @@
 import streamlit as st
 import pandas as pd
 import openpyxl as xl
+import matplotlib.pyplot as plt
 
 path = r'https://github.com/Aussachaa/SFG/raw/main/DB_Performance_SFG.xlsx'
 df = pd.read_excel(path, engine="openpyxl")
