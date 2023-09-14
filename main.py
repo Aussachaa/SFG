@@ -26,13 +26,14 @@ period = st.sidebar.multiselect(
     #default=df['Period'].unique()
 )
 
-period = st.sidebar.multiselect(
+act_fc = st.sidebar.multiselect(
     'Select Actual/Forecast:',
     options=df['ACT_FC'].unique(),
     #default=df['Period'].unique()
 )
 
-df_selection = df.query("Brand == @brand & Period == @period")
+df_selection = df.query(
+    "Brand == @brand & Period == @period & ACT_FC == @act_fc")
 
 st.dataframe(df_selection)
 
