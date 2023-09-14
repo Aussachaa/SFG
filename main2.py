@@ -61,13 +61,13 @@ y_acperfc = df4['ACperFC']
 
 #define subplots
 fig, ax = plt.subplots(figsize=(12, 6))
-ax.bar(x_p, y_ac, color='c', width=0.5, label='Actual')
+ax.bar(x_p, y_ac, color='#FF6A6A', width=0.5, label='Actual')
 pos = np.arange(len(x_p))
 ax.bar([x + 0.3 for x in pos], y_fc, width=0.5,
-       color='orange', alpha=0.8, label='Forecast')
+       color='#CAFF70', alpha=0.8, label='Forecast')
 
 ax2 = ax.twinx()
-ax2.plot(x_p, y_acperfc, color='b', marker='s', markersize=7, alpha=0.5)
+ax2.plot(x_p, y_acperfc, color='#8B8378', marker='s', markersize=7, alpha=0.5)
 
 plt.xticks([r + 0.3/2 for r in range(len(x_p))], df4["Period"])
 plt.title('Net Sale_' + brand)
