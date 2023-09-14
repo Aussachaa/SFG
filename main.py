@@ -20,11 +20,15 @@ brand = st.sidebar.multiselect(
     #default = df['Brand'].unique()
 )
 
-st.sidebar.header('Please Filter Here')
+period = st.sidebar.multiselect(
+    'Select Period:',
+    options=df['Period'].unique(),
+    #default=df['Period'].unique()
+)
 
 period = st.sidebar.multiselect(
-    'Select the Period:',
-    options=df['Period'].unique(),
+    'Select Actual/Forecast:',
+    options=df['ACT_FC'].unique(),
     #default=df['Period'].unique()
 )
 
