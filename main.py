@@ -3,7 +3,8 @@ import streamlit as st
 import pandas as pd
 import openpyxl as xl
 
-df = pd.read_excel('https://github.com/Aussachaa/SFG/raw/main/DB_Performance_SFG.xlsx', engine="openpyxl")
+path = r'https://github.com/Aussachaa/SFG/raw/main/DB_Performance_SFG.xlsx'
+df = pd.read_excel(path, engine="openpyxl")
 
 st.title('Performance of Brands 3000')
 
