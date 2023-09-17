@@ -57,6 +57,7 @@ df2 = df2.sort_values('Period', key=lambda x: x.apply(lambda x: month_dict[x]))
 
 # ----------------------------------------------------
 # Streamlit create fileter
+st.title('Performance of Brands 3000')
 df4 = df2.copy()
 st.sidebar.header('Please Filter Here')
 
