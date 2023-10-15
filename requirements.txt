@@ -2,3 +2,12 @@ streamlit
 pandas
 openpyxl
 matplotlib
+plotly
+requests
+tweepy
+isodate
+datetime
+google-api-python-client
+seaborn
+wordcloud
+plost
