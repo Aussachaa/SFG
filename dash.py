@@ -14,5 +14,5 @@ st.title(" :bar_chart: Performance SFG 3000")
 path_file = r'https://github.com/Aussachaa/SFG/raw/main/Peformance_Data.xlsx'
 df = pd.read_excel(path_file, engine="openpyxl", sheet_name='Channel')
 
-
-st.write(df)
+with st.expander("Channel_ViewData"):
+    st.write(df)
