@@ -32,15 +32,18 @@ df_chan['AT_FC'] = df_chan['AT_FC'].astype('str')
 
 st.sidebar.header("Choose your filter: ")
 
+# Year
 year = st.sidebar.selectbox('Select Year:', df_chan['AT_FC'].unique())
 df_chan2 = df_chan[df_chan['AT_FC'].isin([year])]
 
+# Brand
 brand = st.sidebar.multiselect('Pick your Brand:', df_chan['Brand'].unique())
 if not brand:
     df_chan3 = df_chan2.copy()
 else:
     df_chan3 = df_chan2[df_chan2['Brand'].isin(brand)]
 
+# Channel
 channel = st.sidebar.multiselect(
     'Pick your Channel:', df_chan2['Channel'].unique())
 if not channel:
