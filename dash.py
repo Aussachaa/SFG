@@ -21,7 +21,10 @@ st.title(" :bar_chart: Performance SFG 3000")
 st.markdown('<style>div.block-container{padding-top:1rem;}</style>', unsafe_allow_html=True)
 
 path_db = r"https://github.com/Aussachaa/SFG/raw/main/Database.xlsx"
-df = pd.read_excel(path_db, engine="openpyxl", sheet_name='Per19-23')
+df = pd.read_excel(path_db, 
+                   engine="openpyxl", 
+                   sheet_name='Per19-23'
+                   )
 df['Year'] = df['Year'].astype('str')
 
 # df_chan = df_chan[df_chan['ACC_Name'].isin(['Net Sale', 'Gross Profit'])]
@@ -60,8 +63,13 @@ for index, row in df_tot_ns.iterrows():
         y=row['M01-12'],
         showarrow=False,
         text=str(round(row['M01-12'] / 1000, 1)) + 'M',
-        bgcolor="rgba(255, 255, 0, 0.5)")
+        bgcolor="rgba(255, 255, 0, 0.5)"
+        )
 
-fig.update_traces(textfont_size=12, textangle=0, textposition="outside", cliponaxis=False)
+fig.update_traces(textfont_size=12, 
+                  textangle=0, 
+                  textposition="outside", 
+                  cliponaxis=False
+                  )
 
 st.plotly_chart(fig, use_container_width=True)
